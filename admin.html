@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>CRONOS AGÊNCIA - admin</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/estilo.css" />
+  <link rel="stylesheet" href="./css/modal.css">
+  <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="#">
+        <img src="imagens/CRONOS-logo-white.png" alt="Agência CRONOS" />
+      </a>
+      <h1>Painel administrativo</h1>
+    </div>
+  </header>
+  <section id="servicos" class="py-5 mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+
+
+          <h3>Serviços</h3>
+          <button class="btn btn-primary" id="cadastro_curso">Adicionar novo</button>
+          <table class="table my-5">
+            <thead>
+              <tr>
+                <td>Nome</td>
+                <td>Imagem</td>
+                <td>Descrição</td>
+                <td>Ações</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Desenvolvimento Web</td>
+                <td><img src="imagens/ilustra-web.png" class="img-fluid" /></td>
+                <td>Consequatur debitis ipsa numquam illum placeat quod deleniti.</td>
+                <td>
+                  <button class="btn btn-secondary m-1 btn-editar">editar</button>
+                  <button class="btn btn-danger m-1">excluir</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Marketing Digital</td>
+                <td><img src="imagens/ilustra-marketing.png" class="img-fluid" /></td>
+                <td>Consequatur debitis ipsa numquam illum placeat quod deleniti.</td>
+                <td>
+                  <button class="btn btn-secondary m-1 btn-editar">editar</button>
+                  <button class="btn btn-danger m-1">excluir</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Consultoria UX</td>
+                <td><img src="imagens/ilustra-ux.png" class="img-fluid" /></td>
+                <td>Consequatur debitis ipsa numquam illum placeat quod deleniti.</td>
+                <td>
+                  <button class="btn btn-secondary m-1 btn-editar">editar</button>
+                  <button class="btn btn-danger m-1">excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+          <header class="modal-header">
+              <h2>Novo Curso</h2>
+          </header>
+           
+          <form id="form" class="modal-form">
+              <input type="text" id="novo_img" data-index="new" required class="modal-field" placeholder="Imagem">
+              <input type="text" id="novo_titulo" class="modal-field" placeholder="Título" required>
+              <input type="number" id="novo_id" class="modal-field" placeholder="ID" required>
+              <input type="text" id="novo_professor" class="modal-field" placeholder="Professor" required>
+              <div id="modal-textarea">
+                  <textarea name="" id="novo_descricao" cols="30" rows="8" placeholder="Descrição do Curso" required></textarea>
+                  <textarea name="" id="novo_aulas" cols="30" rows="8" placeholder="Lista de aulas" required></textarea>
+              </div>
+                                
+          </form>
+          <footer class="modal-footer">
+              <button id="salvar">Salvar</button>
+              <button id="salvar-edicao">Editar</button>
+              <button id="cancelar">Cancelar</button>
+          </footer>
+      </div>
+  </div>
+  </section>
+  <footer class="py-3 bg-light">
+    <div class="container text-center">
+      <p class="m-0">
+        copyright 2021
+        <img src="imagens/favicon.png" width="30" alt="" /> agência CRONOS
+      </p>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+
+</html>
