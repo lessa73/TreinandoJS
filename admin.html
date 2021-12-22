@@ -10,8 +10,10 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/estilo.css" />
   <link rel="stylesheet" href="./css/modal.css">
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon" />
-  <script src="script.js" defer></script>
+  <!-- alterou para defer -->
+  <script src="script.js" defer></script> 
 </head>
 
 <body>
@@ -27,9 +29,8 @@
     <div class="container">
       <div class="row">
         <div class="col">
-
-
           <h3>Serviços</h3>
+          <!-- adicionamos um id para o botão -->
           <button class="btn btn-primary" id="cadastro_curso">Adicionar novo</button>
           <table class="table my-5">
             <thead>
@@ -80,19 +81,15 @@
           </header>
            
           <form id="form" class="modal-form">
-              <input type="text" id="novo_img" data-index="new" required class="modal-field" placeholder="Imagem">
-              <input type="text" id="novo_titulo" class="modal-field" placeholder="Título" required>
-              <input type="number" id="novo_id" class="modal-field" placeholder="ID" required>
-              <input type="text" id="novo_professor" class="modal-field" placeholder="Professor" required>
+            <input type="text" id="txt_nome" class="modal-field" placeholder="Nome" required>
+              <input type="text" id="txt_imagem" data-index="new" required class="modal-field" placeholder="Imagem">
+              <input type="number" id="id_curso" class="modal-field" placeholder="ID" required>
               <div id="modal-textarea">
-                  <textarea name="" id="novo_descricao" cols="30" rows="8" placeholder="Descrição do Curso" required></textarea>
-                  <textarea name="" id="novo_aulas" cols="30" rows="8" placeholder="Lista de aulas" required></textarea>
+                  <textarea name="" id="txt_descricao" cols="30" rows="8" placeholder="Descrição do Curso" required></textarea>
               </div>
-                                
           </form>
           <footer class="modal-footer">
               <button id="salvar">Salvar</button>
-              <button id="salvar-edicao">Editar</button>
               <button id="cancelar">Cancelar</button>
           </footer>
       </div>

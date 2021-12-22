@@ -3,6 +3,7 @@
 ////////////////////
 let btnCadastroCurso = document.querySelector('#cadastro_curso');
 let btnSalvarCurso = document.querySelector('#salvar');
+// pegamos todos os elementos com a classe btn-editar
 let btnSalvarEdicaoCurso = document.getElementsByClassName("btn-editar");
 let btnCancelarCadastroCurso = document.querySelector('#cancelar');
 
@@ -132,8 +133,9 @@ const deletarCurso = (id) => {
 //////////////
 btnCadastroCurso.addEventListener('click', cadastrarCurso);
 btnSalvarCurso.addEventListener('click', criarCurso);
-btnCancelarCadastroCurso[i].addEventListener('click', cancelarCriacaoCurso);
+btnCancelarCadastroCurso.addEventListener('click', cancelarCriacaoCurso);
 
+// for para pegar todos os elementos com a classe btn-editar e adicionar uma função no onclick
 for (let i = 0; i < btnSalvarEdicaoCurso.length; i++) {
         btnSalvarEdicaoCurso[i].addEventListener('click', atualizarCurso);
 }
