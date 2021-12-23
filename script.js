@@ -15,7 +15,6 @@ var dadosCursos =[
     {'imagem': 'novoCursoImagem',
     'titulo': 'novoCursoTitulo',
     'id': 'novoCursoId',
-    'professor': 'novoCursoProfessor',
     'descricao' : 'novoCursoDescricao',
     'aulas': 'novoCursoAulas'}
 ];
@@ -32,17 +31,27 @@ const cadastrarCurso = () => {
     // btnSalvarEdicaoCurso.style.display ='none';
     document.querySelector('.modal').classList.add('active');
 }
+//adicionado salvar curso
+const salvarCurso = () => {
 
-const criarCurso = () => {  
-    /////////////////////////
-    /// Acessando inputs ///
-    ///////////////////////
-    let novoCursoImagem = document.getElementById('novo_img').value;
+        const curso = {
+            nome: document.getElementById('titulo').value,
+            img : document.getElementById('imagem'),
+            descricao: document.getElementById('descricao').value 
+        }
+        createCurso(novoCurso)
+        limparimput()
+        closeModal()
+}
+
+// já foi declarado
+const criarCurso = (curso) => {  
+ 
+
     let novoCursoTitulo = document.getElementById('novo_titulo').value;
+    let novoCursoImagem = document.getElementById('novo_img').value;
     let novoCursoId = document.getElementById('novo_id').value;
-    let novoCursoProfessor = document.getElementById('novo_professor').value;
     let novoCursoDescricao = document.getElementById('novo_descricao').value;
-    let novoCursoAulas = document.getElementById('novo_aulas').value;
     
     if(novoCursoId == ""){
         window.alert('Digite um ID válido!')
@@ -56,22 +65,18 @@ const criarCurso = () => {
     }
 
     dadosCursos.push({
-        'imagem': novoCursoImagem,
         'titulo': novoCursoTitulo,
+        'imagem': novoCursoImagem,
         'id': novoCursoId,
-        'professor': novoCursoProfessor,
         'descricao' : novoCursoDescricao,
-        'aulas': novoCursoAulas
     });
 
     const novoCurso = document.createElement('div')
     novoCurso.innerHTML = `
-        <img src="${novoCursoImagem = '../imagens/teste.png'}" class="curso_imagem" alt="imagem curso">                
         <h2 class="curso_titulo">${novoCursoTitulo}</h2>
+        <img src="${novoCursoImagem = '../imagens/teste.png'}" class="curso_imagem" alt="imagem curso">                
         <span class="curso_id">ID: ${novoCursoId}</span>
-        <span class="curso_professor">Professor: ${novoCursoProfessor}</span>
         <p class="curso_descricao">${novoCursoDescricao}</p>
-        <p class="curso_descricao">${novoCursoAulas}</p>
         <div class="curso_botoes_editar_deletar">
             <button class="curso_botao_editar" onclick="abrirEdicaoCurso(${novoCursoId})">Editar</button>
             <button class="curso_botao_deletar" onclick="deletarCurso(${novoCursoId})">Deletar</button>
@@ -91,7 +96,7 @@ const cancelarCriacaoCurso = () => {
 const limparInputsCriacao = () => {
     document.querySelector('#form').reset();
 }
-
+// já foi declarado
 const abrirEdicaoCurso = (id) => {
     document.querySelector('.modal').classList.add('active');
 
@@ -100,26 +105,24 @@ const abrirEdicaoCurso = (id) => {
 
     for(let i = 0; i < dadosCursos.length; i++) {        
         if (dadosCursos[i]['id'] == id){
-            document.getElementById('novo_img').value = dadosCursos[i]['image'];
             document.getElementById('novo_titulo').value = dadosCursos[i]['titulo'];
+            document.getElementById('novo_img').value = dadosCursos[i]['image'];
             document.getElementById('novo_id').value = dadosCursos[i]['id'];
-            document.getElementById('novo_professor').value = dadosCursos[i]['professor'];
             document.getElementById('novo_descricao').value = dadosCursos[i]['descricao'];
-            document.getElementById('novo_aulas').value = dadosCursos[i]['aulas'];
         }        
     }   
 }
-
+//já foi declarado
 const atualizarCurso = () => {  
-    let atualizaCurso = document.getElementById('novo_id').value
+    let atualizaCurso = document.getElementById('novo_id')
 
     abrirEdicaoCurso();    
-    deletarCurso(atualizaCurso);
+    deletarCurso();
     criarCurso();
 }
-
+//já foi declarado
 const deletarCurso = (id) => {    
-    document.getElementById(id).remove();
+    document.getElementById().remove();
     for(let i = 0; i < dadosCursos.length; i++) {        
         if (dadosCursos[i]['id'] == id){
             dadosCursos.splice(i, 1);
@@ -130,7 +133,7 @@ const deletarCurso = (id) => {
 
 ////////////////
 /// EVENTOS ///
-//////////////
+//indefinido
 btnCadastroCurso.addEventListener('click', cadastrarCurso);
 btnSalvarCurso.addEventListener('click', criarCurso);
 btnCancelarCadastroCurso.addEventListener('click', cancelarCriacaoCurso);
