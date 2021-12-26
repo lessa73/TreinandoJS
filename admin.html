@@ -41,7 +41,7 @@
                 <td>Ações</td>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="tabela1">
               <tr>
                 <td>Desenvolvimento Web</td>
                 <td><img src="imagens/ilustra-web.png" class="img-fluid" /></td>
@@ -82,14 +82,15 @@
            
           <form id="form" class="modal-form">
             <input type="text" id="txt_nome" class="modal-field" placeholder="Nome" required>
-              <input type="text" id="txt_imagem" data-index="new" required class="modal-field" placeholder="Imagem">
-              <input type="number" id="id_curso" class="modal-field" placeholder="ID" required>
+            <input type="text" id="txt_imagem" data-index="new" required class="modal-field" placeholder="Imagem">
+            <input type="number" id="id_curso" class="modal-field" placeholder="ID" required>
               <div id="modal-textarea">
                   <textarea name="" id="txt_descricao" cols="30" rows="8" placeholder="Descrição do Curso" required></textarea>
               </div>
-           </form>
+          </form>
           <footer class="modal-footer">
               <button id="salvar">Salvar</button>
+              <button id="salvar-edicao">Editar</button>
               <button id="cancelar">Cancelar</button>
           </footer>
       </div>
