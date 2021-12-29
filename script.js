@@ -10,12 +10,7 @@ let btnCancelarCadastroCurso = document.querySelector('#cancelar');
 ////////////////////////
 /// Lista de cursos ///
 //////////////////////
-var dadosCursos =[
-    {'imagem': 'novoCursoImagem',
-    'titulo': 'novoCursoTitulo',
-    'id': 'novoCursoId',
-    'descricao' : 'novoCursoDescricao'}
-];
+var dadosCursos =[];
 
 
 ////////////////
@@ -61,28 +56,46 @@ const criarCurso = (curso) => {
             return window.alert('Esse ID de curso já existe!');
         }        
     }
-
-    dadosCursos.push({
+    let novoCurso = {
         'titulo': novoCursoTitulo,
         'imagem': novoCursoImagem,
         'id': novoCursoId,
         'descricao' : novoCursoDescricao,
-    });
+    };
 
+    dadosCursos.push(novoCurso);
+        
+    criarLinhaTabela(novoCurso);
+    
+    localStorage.setItem('dadosCursos', JSON.stringify(dadosCursos));
+
+}
+
+const criarLinhaTabela = (curso) => {
     const novoCurso = document.createElement('tr')
     novoCurso.innerHTML = `
-    <td>${novoCursoTitulo}</td>
-    <td><img src="${novoCursoImagem = 'imagens/ilustra-web.png'}" class="img-fluid" /></td>
-    <td>${novoCursoDescricao}</td>
+    <td>${curso.titulo}</td>
+    <td><img src="${curso.imagem = 'imagens/ilustra-web.png'}" class="img-fluid" /></td>
+    <td>${curso.descricao}</td>
     <td>
-      <button class="btn btn-secondary m-1" onclick="abrirEdicaoCurso(${novoCursoId})">editar</button>
-      <button class="btn btn-danger m-1" onclick="deletarCurso(${novoCursoId})">excluir</button>
+      <button class="btn btn-secondary m-1" onclick="abrirEdicaoCurso(${curso.id})">editar</button>
+      <button class="btn btn-danger m-1" onclick="deletarCurso(${curso.id})">excluir</button>
     </td>`;
 
-    novoCurso.setAttribute('id', `${novoCursoId}`);
+    novoCurso.setAttribute('id', `${curso.id}`);
     document.querySelector('#tabela1').appendChild(novoCurso);    
     document.querySelector('#form').reset();
 }
+
+const carregarPagina = () => {
+    if (localStorage.getItem('dadosCursos') != null){
+        let listaCursos = JSON.parse(localStorage.getItem('dadosCursos'));
+        for (let i = 0; i < listaCursos.length; i++) {
+            criarLinhaTabela(listaCursos[i]);
+        }
+    } 
+}
+carregarPagina();
 
 const cancelarCriacaoCurso = () => {
     limparInputsCriacao()
