@@ -1,24 +1,11 @@
-//////////////////////
-/// Acessando DOM ///
-////////////////////
+
 let btnCadastroCurso = document.querySelector('#cadastro_curso');
 let btnSalvarCurso = document.querySelector('#salvar');
 let btnSalvarEdicaoCurso = document.querySelector('#salvar-edicao');
 let btnCancelarCadastroCurso = document.querySelector('#cancelar');
 
-
-////////////////////////
-/// Lista de cursos ///
-//////////////////////
 var dadosCursos =[];
 
-
-////////////////
-/// FUNÇÕES ///
-//////////////
-
-
-// Funções: Criar, editar, Deletar
 const cadastrarCurso = () => {
     btnSalvarCurso.style.display = 'initial';
     btnSalvarEdicaoCurso.style.display ='none';
@@ -26,21 +13,17 @@ const cadastrarCurso = () => {
 }
 
 const salvarCurso = () => {
-
-        const curso = {
-            nome: document.getElementById('titulo').value,
-            img : document.getElementById('imagem'),
-            descricao: document.getElementById('descricao').value 
-        }
-        createCurso(novoCurso)
-        limparimput()
-        closeModal()
+    const curso = {
+        nome: document.getElementById('titulo').value,
+        img : document.getElementById('imagem'),
+        descricao: document.getElementById('descricao').value 
+    }
+    createCurso(novoCurso)
+    limparimput()
+    closeModal()
 }
 
-
 const criarCurso = (curso) => {  
- 
-
     let novoCursoTitulo = document.getElementById('txt_nome').value;
     let novoCursoImagem = document.getElementById('txt_imagem').value;
     let novoCursoId = document.getElementById('id_curso').value;
@@ -56,6 +39,7 @@ const criarCurso = (curso) => {
             return window.alert('Esse ID de curso já existe!');
         }        
     }
+
     let novoCurso = {
         'titulo': novoCursoTitulo,
         'imagem': novoCursoImagem,
@@ -108,7 +92,6 @@ const limparInputsCriacao = () => {
 
 const abrirEdicaoCurso = (id) => {
     document.querySelector('.modal').classList.add('active');
-
     btnSalvarCurso.style.display = 'none';
     btnSalvarEdicaoCurso.style.display ='initial';
 
@@ -124,7 +107,6 @@ const abrirEdicaoCurso = (id) => {
 
 const atualizarCurso = () => {  
     let atualizaCurso = document.getElementById('id_curso').value
-
     abrirEdicaoCurso();    
     deletarCurso(atualizaCurso);
     criarCurso();
@@ -140,10 +122,6 @@ const deletarCurso = (id) => {
     }
 };
 
-
-////////////////
-/// EVENTOS ///
-//indefinido
 btnCadastroCurso.addEventListener('click', cadastrarCurso);
 btnSalvarCurso.addEventListener('click', criarCurso);
 btnCancelarCadastroCurso.addEventListener('click', cancelarCriacaoCurso);
